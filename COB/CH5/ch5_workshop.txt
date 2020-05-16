@@ -1,0 +1,9 @@
+#chapter 5 workshop 
+
+#1. command to search filesystem for any file named dog.png 
+find -name dog.png
+
+#2. command to search the filesystem for any file containing the text "confidential"
+find . -name "*.*" -print | xargs -0 egrep confidential
+
+
