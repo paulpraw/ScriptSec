@@ -1,0 +1,9 @@
+#1 write a command to add an event to the windows application event log with an event ID of 450,
+# a type of information, and the description "Chapter 18 exercise"
+
+#I used powershell for this
+.\eventcreate.exe /t error /id 450 /d "chapter 18 exercise" 
+
+
+#2. Write a command to add the event "Chapter 18 exercise" to the linux log
+$ logger 'Chapter 18 exercise' 
