@@ -1,0 +1,48 @@
+1. the following example uses cut to print the first and tenth fields of access.log 
+    $  cut -d' ' -f1,10 access.log | bash summer.sh | sort -k 2.1 -rn
+    
+    replace cut with awk. do you get the same results?
+
+    awk '{ print $2,$10}' access.log | bash summer.sh | sort -k 2.1 -rn
+    
+    No, we do not get the same resultds. "Cut takes a single character in -d  as the field dleimeter
+    
+    
+2. expand the histogram.sh script to incluide the count at the end of each histogram bar
+
+function pr_bar ()                            
+{
+    local -i i raw maxraw scaled              
+    raw=$1
+    maxraw=$2
+    ((scaled=(MAXBAR*raw)/maxraw))            
+    # min size guarantee
+    ((raw > 0 && scaled == 0)) && scaled=1                              
+
+    for((i=0; i<scaled; i++)) ; do printf '#' ; done
+    printf '\n'
+    
+} # pr_bar
+
+#
+# "main"
+#
+declare -A RA                                           
+declare -i MAXBAR max
+max=0
+MAXBAR=50       
+
+while read labl val
+do
+    let RA[$labl]=$val                                 
+    # keep the largest value; for scaling
+    (( val > max )) && max=$val
+done
+
+# scale and print it
+for labl in "${!RA[@]}"                                 
+do
+    printf '%-20.20s  ' "$labl"
+    printf "%-30s %8d\n" "${val}"   ###################### this is what I added, displays a number, not necesarily the right one
+    pr_bar ${RA[$labl]} $max                           
+done
