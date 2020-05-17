@@ -1,0 +1,2 @@
+PLEASE SEE osdetect.sh for the answer to workshop question 1
+and osdetect2.sh for the answer to workshop question 2. 
