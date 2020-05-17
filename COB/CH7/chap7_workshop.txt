@@ -5,8 +5,7 @@
 
     awk '{ print $2,$10}' access.log | bash summer.sh | sort -k 2.1 -rn
     
-    No, we do not get the same resultds. "Cut takes a single character in -d  as the field dleimeter
-    
+    No, we do not get the same results. In this instance it seems that the summer.sh is throwing something off. 
     
 2. expand the histogram.sh script to incluide the count at the end of each histogram bar
 
