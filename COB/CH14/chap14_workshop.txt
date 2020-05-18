@@ -1,0 +1,31 @@
+2. Obfuscate the following script by using the techniques described earlier to make it difficult to follow
+    #!/bin/bash -
+
+      for args do
+	      echo $args
+        done
+        
+      
+Obfuscated Script: 
+#!/bin/bash -
+
+function x ()
+{
+	xxx=$1
+	xxxxx=$#
+	xx $(( $1 ^ $1 ))
+}
+
+function xx ()
+{
+	xxxx $(( $1 ^ 0 ))
+}
+
+function xxxx ()
+{
+	echo $(( $xxx ^ $1 ))
+}
+
+for x do
+	x $x
+done
