@@ -1,0 +1,9 @@
+
+#1. keep a running list of the last date and time each systems was successfully contacted 
+ping -D 8.8.8.8 | awk -F '{print $1}' >> pinghistory.txt
+
+#2. ping a range of IP addresses 
+for i in `seq 1 50`
+do
+  ping 192.168.0.$i 2 | grep "no answer"
+done
